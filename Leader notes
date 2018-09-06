@@ -1,0 +1,18 @@
+* write an outline of what the app will do.
+Will upload this on friday.
+
+
+* split up into UI, mobile frontend, and backend sub-groups
+UI - Luis, Shane
+mobile frontend - Brand
+backend - Bryan
+
+
+* UI people should begin designs using mocking tool (say https://proto.io/) to design every screen ahead of time
+
+* backend and frontend need to write up every API call between them
+
+* frontend dev needs to design the datastructure for quizzes and make sure it does everything the UI needs in terms of data
+
+all of that provides the basis for the glue between the sub-projects 
+(i.e. how each part will work with the others) we will then begin working on our own things.
