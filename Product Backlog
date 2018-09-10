@@ -13,6 +13,8 @@ Product will contain the following features:
   * Suggested questions based on topic to new and existing users
   * Feedback mode
   * Suggested quizzes based on topics 
+  * Chatrooms to talk to classmates
+  * Ability to share quizzes and reviews inside chatrooms
   
   Shane's additions
   * Product must connect to server. The information is not stored locally.
