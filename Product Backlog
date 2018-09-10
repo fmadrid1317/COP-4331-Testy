@@ -14,6 +14,10 @@ Product will contain the following features:
   * Feedback mode
   * Suggested quizzes based on topics 
   
+  Shane's additions
+  * Product must connect to server. The information is not stored locally.
+  * Ability to share quizzes with other users
+  * Ability to create a unique account. Account information is stored on the server.
   
   ...continued
   
