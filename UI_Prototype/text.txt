@@ -1,1 +1,4 @@
+INSTRUCTIONS TO RUN PROTOTYPE USER INTERFACE
 
+1. Download the entire folder above this one and all of its contents
+2. Run the file titled "frame.html"
