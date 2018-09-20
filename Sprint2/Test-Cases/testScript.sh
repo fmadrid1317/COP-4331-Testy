@@ -5,7 +5,7 @@
 # BasicFunctionality: test-all.sh
 # You can run this script at the command line like so:
 #
-#   bash test-all.sh
+#   bash testScript.sh
 
 ################################################################################
 # Shell check.
