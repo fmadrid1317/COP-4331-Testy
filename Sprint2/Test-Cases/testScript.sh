@@ -28,7 +28,7 @@ fi
 #Init
 
 PASS_CNT=0
-NUM_TEST_CASES=5
+NUM_TEST_CASES=3
 
 
 #Are all files present?
