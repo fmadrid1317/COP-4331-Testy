@@ -15,7 +15,7 @@
 | 010 | As a user, I want to navigate a fluid User Interface. |	1 |	2 |	The UI is reasonably fluid and well organized. | WORKING |
 | 011 | As a quiz creator, I want to be able to mark the correct for my quiz |	1	| 2	 | The correct answer is marked so the user knows if the he/she was right or wrong. | WORKING |
 | 012 | As a developer, I want to the quizzes and user information to be stored server-side. |	2	| 5 |	If the app is deleted or the phone is factory reset, the data and profile does not dissappear. | WORKING |
-| 013 | As a developer, I want to create a prototype of the UI.	| 1 |	3 |	The prototype is created to make it easier to implement in Android Studio. |
+| 013 | As a developer, I want to create a prototype of the UI.	| 1 |	3 |	The prototype is created to make it easier to implement in Android Studio. | WORKING |
 
 
 
