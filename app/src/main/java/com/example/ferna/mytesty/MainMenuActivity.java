@@ -10,7 +10,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public Button newTestButton;
 
-    public void init(){
+    private void init()
+    {
         newTestButton = (Button)findViewById(R.id.newTestButton);
         newTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,7 +24,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
