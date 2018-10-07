@@ -15,12 +15,26 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
-        android:text="@string/new_test"
+        android:text="Create Test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.203" />
+
+    <Button
+        android:id="@+id/openTestButton"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="256dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="52dp"
+        android:text="Open Test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newTestButton" />
 
 </android.support.constraint.ConstraintLayout>

@@ -26,7 +26,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="8dp"
         android:text="@string/true_false"
         app:layout_constraintBottom_toTopOf="@+id/fbButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +42,12 @@
         android:layout_marginBottom="128dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/fill_in_the_blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tfButton" />
 
 </android.support.constraint.ConstraintLayout>

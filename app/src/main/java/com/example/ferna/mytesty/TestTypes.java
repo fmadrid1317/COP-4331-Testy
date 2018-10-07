@@ -29,7 +29,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent newTFQuiz;
-                newTFQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
+                newTFQuiz = new Intent(TestTypes.this, TrueFalse_Activity.class);
                 startActivity(newTFQuiz);
             }
         });
@@ -39,7 +39,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent openFreeQuiz;
-                openFreeQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
+                openFreeQuiz = new Intent(TestTypes.this, FreeResponse_Activity.class);
                 startActivity(openFreeQuiz);
             }
         });

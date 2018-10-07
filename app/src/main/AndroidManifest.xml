@@ -22,6 +22,8 @@
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MultipleChoice_Activity"></activity>
+        <activity android:name=".TrueFalse_Activity"></activity>
+        <activity android:name=".FreeResponse_Activity"></activity>
     </application>
 
 </manifest>
