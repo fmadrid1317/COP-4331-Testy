@@ -1,0 +1,19 @@
+Product will contain the following features:
+  *Review Mode
+  *Quiz Mode
+  *ability to report data to user
+  *ability to report data to quiz creator
+  *spaced repetition
+  *add other data types like images, video, audio
+  *if vocab deck then scrape vocab site
+  *accounts and point system
+  * Suggested questions based on topic to new and existing users
+  * Feedback mode
+  * Suggested quizzes based on topics 
+  * Chatrooms to talk to classmates
+  * Ability to share quizzes and reviews inside chatrooms
+
+  Shane's additions
+  * Product must connect to server. The information is not stored locally.
+  * Ability to share quizzes with other users
+  * Ability to create a unique account. Account information is stored on the server.
