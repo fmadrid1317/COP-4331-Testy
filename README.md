@@ -29,4 +29,5 @@ Testy will be an Android app that assists college students with their course wor
 
 - [Product Backlog](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/ProductBacklog.md)
 - [Sprint Backlog](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/Sprint%20Backlog.md)
+- [Testcases](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/Testcases.txt)
 
