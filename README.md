@@ -5,10 +5,10 @@ Testy will be an Android app that assists college students with their course wor
 
 ## Team Members
 
+- Brandon Cook
 - Bryan Owen
 - Luis Reyes
 - Shane Zweibach
-- Brandon Cook
 
 ## Vision Statement
 
