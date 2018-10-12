@@ -2,7 +2,7 @@
 
 | ID | User Story | Priority | Effort | Validation Criteria | Status |
 |----|------------|--------|----------|---------------------|--------|
-| 000 | ~As a user, I want to be able to create a quiz.~|	1 |	2 |	A new quiz is created. | WORKING |
+| 000 | As a user, I want to be able to create a quiz. |	1 |	2 |	A new quiz is created. | WORKING |
 | 001 | As a user, I want to be able to add a question to the quiz. |	1 |	2 |	A question is added to the quiz. | WORKING |
 | 002 | As a user, I want to be able to have quizzes suggested to me based on topic using keywords. | 4 |	4 |	A quiz is suggest to me based on keywords. | WORKING |
 | 003 | As a user, I want to have a unique profile distinct from everyone else. |	2 |	5 |	A profile is created with a unique username and password. | WORKING |
