@@ -1,6 +1,6 @@
 # COP-4331-Testy
 
-Testy will be an Android app that assists college students with their course work by allowing them to create and share practice quizzes with other students. Luis and I have experience that collaborating and learning together allows us to not only know the material but also apply it. A practice that we recently started that was highly effective was creating quizzes for each other. Testy takes this practice and runs with it, by giving students access to quizzes made by the entire community.
+Testy will be an Android app that assists college students with their course work by allowing them to create and share practice quizzes with other students. Luis and I have experience that collaborating and learning together allows us to not only know the material but also apply it. A highly effective practice that we recently started was creating quizzes for each other. Testy takes this practice and runs with it, by giving students access to quizzes made by the entire community.
 
 
 ## Team Members
