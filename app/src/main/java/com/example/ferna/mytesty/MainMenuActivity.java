@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     public Button newTestButton;
@@ -25,7 +27,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         init();
