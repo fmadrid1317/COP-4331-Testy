@@ -20,6 +20,7 @@ public class TrueFalse_Activity extends AppCompatActivity
     public CheckBox trueCheck;
     public CheckBox falseCheck;
 
+    //JSON Stuff
     Gson gS = new Gson();
     String target = getIntent().getStringExtra("QuizString");
     Quiz currentQuiz = gS.fromJson(target, Quiz.class);
@@ -36,6 +37,7 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent nextQuestion;
                 nextQuestion = new Intent(TrueFalse_Activity.this, TrueFalse_Activity.class);
@@ -50,6 +52,7 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent saveQuiz;
                 saveQuiz = new Intent(TrueFalse_Activity.this, MainMenuActivity.class);

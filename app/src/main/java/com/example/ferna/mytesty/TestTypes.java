@@ -24,6 +24,7 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
+                //JSON Stuff
                 Gson gS = new Gson();
                 String target = gS.toJson(newQuiz);
                 Intent openNewMultQuiz;
@@ -40,6 +41,7 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
+                //JSON Stuff
                 Gson gS = new Gson();
                 String target = gS.toJson(newQuiz);
                 Intent newTFQuiz;
@@ -56,6 +58,7 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
+                //JSON Stuff
                 Gson gS = new Gson();
                 String target = gS.toJson(newQuiz);
                 Intent openFreeQuiz;

@@ -18,6 +18,7 @@ public class FreeResponse_Activity extends AppCompatActivity
     public TextInputLayout qstTxt;
     public TextInputLayout corAns;
 
+    //JSON Stuff
     Gson gS = new Gson();
     String target = getIntent().getStringExtra("QuizString");
     Quiz currentQuiz = gS.fromJson(target, Quiz.class);
@@ -36,6 +37,7 @@ public class FreeResponse_Activity extends AppCompatActivity
             {
                 qstTxt.getEditText().getText();
                 corAns.getEditText().getText();
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent nextQuestion;
                 nextQuestion = new Intent(FreeResponse_Activity.this, FreeResponse_Activity.class);
@@ -52,6 +54,7 @@ public class FreeResponse_Activity extends AppCompatActivity
             {
                 qstTxt.getEditText().getText();
                 corAns.getEditText().getText();
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent saveQuiz;
                 saveQuiz = new Intent(FreeResponse_Activity.this, MainMenuActivity.class);

@@ -20,6 +20,7 @@ public class MultipleChoice_Activity extends AppCompatActivity {
     public TextInputLayout incAns2;
     public TextInputLayout incAns3;
 
+    //JSON Stuff
     Gson gS = new Gson();
     String target = getIntent().getStringExtra("QuizString");
     Quiz currentQuiz = gS.fromJson(target, Quiz.class);
@@ -37,6 +38,7 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent nextQuestion;
                 nextQuestion = new Intent(MultipleChoice_Activity.this, MultipleChoice_Activity.class);
@@ -51,6 +53,7 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                //JSON Stuff
                 target = gS.toJson(currentQuiz);
                 Intent saveQuiz;
                 saveQuiz = new Intent(MultipleChoice_Activity.this, MainMenuActivity.class);
