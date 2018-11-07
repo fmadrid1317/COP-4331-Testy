@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyTesty</string>
+    <string name="app_name">Testy</string>
     <string name="new_test">New Test</string>
     <string name="true_false">True/False</string>
     <string name="fill_in_the_blank">Fill in the Blank</string>
