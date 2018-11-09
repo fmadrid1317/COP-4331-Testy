@@ -10,12 +10,10 @@
         android:id="@+id/ansTxt"
         android:layout_width="343dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="226dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="72dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/nxtButton3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qstTxt">
@@ -27,30 +25,16 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/nxtButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="39dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="400dp"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/saveButton3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/saveButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="39dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="400dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/nxtButton3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

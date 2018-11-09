@@ -7,13 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.gson.Gson;
-
 public class TestTypes extends AppCompatActivity {
 
     public Button mcButton;
     public Button tfButton;
     public Button fbButton;
+    public Button saveButton;
 
     private void init()
     {
@@ -25,7 +24,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(0);
+
                 Intent openNewMultQuiz;
                 openNewMultQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
                 openNewMultQuiz.putExtra("Quiz", newQuiz);
@@ -39,7 +38,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(1);
+
                 Intent newTFQuiz;
                 newTFQuiz = new Intent(TestTypes.this, TrueFalse_Activity.class);
                 newTFQuiz.putExtra("Quiz", newQuiz);
@@ -53,11 +52,21 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(2);
+
                 Intent openFreeQuiz;
                 openFreeQuiz = new Intent(TestTypes.this, FreeResponse_Activity.class);
                 openFreeQuiz.putExtra("Quiz", newQuiz);
                 startActivity(openFreeQuiz);
+            }
+        });
+
+        saveButton = (Button)findViewById(R.id.saveButton4);
+        saveButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
             }
         });
     }
