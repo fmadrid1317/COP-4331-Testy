@@ -18,13 +18,10 @@ public class FreeResponse_Activity extends AppCompatActivity
     public TextInputLayout qstTxt;
     public TextInputLayout corAns;
 
-    //JSON Stuff
-    Gson gS = new Gson();
-    String target = getIntent().getStringExtra("QuizString");
-    Quiz currentQuiz = gS.fromJson(target, Quiz.class);
-
     private void init()
     {
+        Intent i = getIntent();
+        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
         qstTxt = findViewById(R.id.qstTxt);
         corAns = findViewById(R.id.corAns);
@@ -35,13 +32,13 @@ public class FreeResponse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                qstTxt.getEditText().getText();
-                corAns.getEditText().getText();
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
+                if(qstTxt != null)
+                    qstTxt.getEditText().getText();
+                if(corAns != null)
+                    corAns.getEditText().getText();
                 Intent nextQuestion;
                 nextQuestion = new Intent(FreeResponse_Activity.this, FreeResponse_Activity.class);
-                nextQuestion.putExtra("QuizString", target);
+                nextQuestion.putExtra("Quiz", newQuiz);
                 startActivity(nextQuestion);
             }
         });
@@ -52,13 +49,13 @@ public class FreeResponse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                qstTxt.getEditText().getText();
-                corAns.getEditText().getText();
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
+                if(qstTxt != null)
+                    qstTxt.getEditText().getText();
+                if(corAns != null)
+                    corAns.getEditText().getText();
                 Intent saveQuiz;
                 saveQuiz = new Intent(FreeResponse_Activity.this, MainMenuActivity.class);
-                saveQuiz.putExtra("QuizString", target);
+                saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
         });

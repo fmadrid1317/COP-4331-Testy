@@ -3,6 +3,7 @@ package com.example.ferna.mytesty;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,12 +25,10 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
-                //JSON Stuff
-                Gson gS = new Gson();
-                String target = gS.toJson(newQuiz);
+                Log.d("BAD_BUG", "Everything is terrible!");
                 Intent openNewMultQuiz;
                 openNewMultQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
-                openNewMultQuiz.putExtra("QuizString", target);
+                openNewMultQuiz.putExtra("Quiz", newQuiz);
                 startActivity(openNewMultQuiz);
             }
         });
@@ -41,12 +40,9 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
-                //JSON Stuff
-                Gson gS = new Gson();
-                String target = gS.toJson(newQuiz);
                 Intent newTFQuiz;
                 newTFQuiz = new Intent(TestTypes.this, TrueFalse_Activity.class);
-                newTFQuiz.putExtra("QuizString", target);
+                newTFQuiz.putExtra("Quiz", newQuiz);
                 startActivity(newTFQuiz);
             }
         });
@@ -58,12 +54,9 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 Quiz newQuiz = new Quiz();
-                //JSON Stuff
-                Gson gS = new Gson();
-                String target = gS.toJson(newQuiz);
                 Intent openFreeQuiz;
                 openFreeQuiz = new Intent(TestTypes.this, FreeResponse_Activity.class);
-                openFreeQuiz.putExtra("QuizString", target);
+                openFreeQuiz.putExtra("Quiz", newQuiz);
                 startActivity(openFreeQuiz);
             }
         });

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "620989108748",
+    "firebase_url": "https://cop-4331c-project-testy.firebaseio.com",
+    "project_id": "cop-4331c-project-testy",
+    "storage_bucket": "cop-4331c-project-testy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620989108748:android:cb1bad6b59a37d43",
+        "android_client_info": {
+          "package_name": "com.example.ferna.mytesty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620989108748-s9dnkcarlqnl7an68k3v6rumt59ebe2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ferna.mytesty",
+            "certificate_hash": "eaf7e48df42be084ddf9a57d9cc8648ef50fc5ef"
+          }
+        },
+        {
+          "client_id": "620989108748-6ot7l2shpc8c2f67tojnqgtr7l4prkg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSbsSjd4ncCZvfvuylo_hm8Is3_uxD6WM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620989108748-6ot7l2shpc8c2f67tojnqgtr7l4prkg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

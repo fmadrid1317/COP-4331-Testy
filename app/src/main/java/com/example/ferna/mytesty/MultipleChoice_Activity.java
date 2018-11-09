@@ -20,12 +20,14 @@ public class MultipleChoice_Activity extends AppCompatActivity {
     public TextInputLayout incAns2;
     public TextInputLayout incAns3;
 
-    //JSON Stuff
-    Gson gS = new Gson();
-    String target = getIntent().getStringExtra("QuizString");
-    Quiz currentQuiz = gS.fromJson(target, Quiz.class);
+
+
+
 
     private void init(){
+        Intent i = getIntent();
+        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+
         qstTxt = findViewById(R.id.qstTxt);
         corAns = findViewById(R.id.corAns);
         incAns1 = findViewById(R.id.incAns1);
@@ -38,11 +40,9 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
                 Intent nextQuestion;
                 nextQuestion = new Intent(MultipleChoice_Activity.this, MultipleChoice_Activity.class);
-                nextQuestion.putExtra("QuizString", target);
+                nextQuestion.putExtra("Quiz", newQuiz);
                 startActivity(nextQuestion);
             }
         });
@@ -53,11 +53,9 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
                 Intent saveQuiz;
                 saveQuiz = new Intent(MultipleChoice_Activity.this, MainMenuActivity.class);
-                saveQuiz.putExtra("QuizString", target);
+                saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
         });

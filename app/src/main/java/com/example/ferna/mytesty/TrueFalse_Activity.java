@@ -20,13 +20,12 @@ public class TrueFalse_Activity extends AppCompatActivity
     public CheckBox trueCheck;
     public CheckBox falseCheck;
 
-    //JSON Stuff
-    Gson gS = new Gson();
-    String target = getIntent().getStringExtra("QuizString");
-    Quiz currentQuiz = gS.fromJson(target, Quiz.class);
 
     private void init()
     {
+        Intent i = getIntent();
+        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+
         qstTxt = findViewById(R.id.qstTxt);
         trueCheck = findViewById(R.id.trueCheck);
         falseCheck = findViewById(R.id.falseCheck);
@@ -37,11 +36,9 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
                 Intent nextQuestion;
                 nextQuestion = new Intent(TrueFalse_Activity.this, TrueFalse_Activity.class);
-                nextQuestion.putExtra("QuizString", target);
+                nextQuestion.putExtra("Quiz", newQuiz);
                 startActivity(nextQuestion);
             }
         });
@@ -52,11 +49,9 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                //JSON Stuff
-                target = gS.toJson(currentQuiz);
                 Intent saveQuiz;
                 saveQuiz = new Intent(TrueFalse_Activity.this, MainMenuActivity.class);
-                saveQuiz.putExtra("QuizString", target);
+                saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
         });

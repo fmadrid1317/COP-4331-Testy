@@ -2,9 +2,11 @@ package com.example.ferna.mytesty;
 
 import android.widget.EditText;
 
+import java.io.Serializable;
+
 
 //Doubly Linked List Nonsense
-public class Quiz
+public class Quiz implements Serializable
 {
     Question head;
     Question current;
@@ -28,7 +30,7 @@ public class Quiz
         current = head;
     }
 
-    class Question
+    class Question implements Serializable
     {
         int quesType;
         EditText quizQuestion;
