@@ -40,25 +40,47 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent nextQuestion;
-                nextQuestion = new Intent(MultipleChoice_Activity.this, MultipleChoice_Activity.class);
-                nextQuestion.putExtra("Quiz", newQuiz);
-                startActivity(nextQuestion);
+                if(qstTxt != null)
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
+                if(corAns != null)
+                    newQuiz.current.corrAns = corAns.getEditText();
+                if(incAns1 != null)
+                    newQuiz.current.wrongAns1 = incAns1.getEditText();
+                if(incAns2 != null)
+                    newQuiz.current.wrongAns2 = incAns2.getEditText();
+                if(incAns3 != null)
+                    newQuiz.current.wrongAns3 = incAns3.getEditText();
+                //newQuiz.addQuest(0);
+                finish();
+                //Intent nextQuestion;
+                //nextQuestion = new Intent(MultipleChoice_Activity.this, MultipleChoice_Activity.class);
+                //nextQuestion.putExtra("Quiz", newQuiz);
+                //startActivity(nextQuestion);
             }
         });
 
-        saveButton = (Button)findViewById(R.id.saveButton);
+        /*saveButton = (Button)findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                if(qstTxt != null)
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
+                if(corAns != null)
+                    newQuiz.current.corrAns = corAns.getEditText();
+                if(incAns1 != null)
+                    newQuiz.current.wrongAns1 = incAns1.getEditText();
+                if(incAns2 != null)
+                    newQuiz.current.wrongAns2 = incAns2.getEditText();
+                if(incAns3 != null)
+                    newQuiz.current.wrongAns3 = incAns3.getEditText();
                 Intent saveQuiz;
                 saveQuiz = new Intent(MultipleChoice_Activity.this, MainMenuActivity.class);
                 saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
-        });
+        });*/
 
 
     }

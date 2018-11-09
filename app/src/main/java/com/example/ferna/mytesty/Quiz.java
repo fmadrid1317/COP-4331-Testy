@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 
 //Doubly Linked List Nonsense
+//0 is Multiple Choice, 1 is True False, 2 is Free Response
 public class Quiz implements Serializable
 {
     Question head;

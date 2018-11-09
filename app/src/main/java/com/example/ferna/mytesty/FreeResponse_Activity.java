@@ -33,32 +33,34 @@ public class FreeResponse_Activity extends AppCompatActivity
             public void onClick(View v)
             {
                 if(qstTxt != null)
-                    qstTxt.getEditText().getText();
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
                 if(corAns != null)
-                    corAns.getEditText().getText();
-                Intent nextQuestion;
-                nextQuestion = new Intent(FreeResponse_Activity.this, FreeResponse_Activity.class);
-                nextQuestion.putExtra("Quiz", newQuiz);
-                startActivity(nextQuestion);
+                    newQuiz.current.corrAns = corAns.getEditText();
+                //newQuiz.addQuest(3);
+                finish();
+                //Intent nextQuestion;
+                //nextQuestion = new Intent(FreeResponse_Activity.this, FreeResponse_Activity.class);
+                //nextQuestion.putExtra("Quiz", newQuiz);
+                //startActivity(nextQuestion);
             }
         });
 
-        saveButton = (Button)findViewById(R.id.saveButton3);
+        /*saveButton = (Button)findViewById(R.id.saveButton3);
         saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 if(qstTxt != null)
-                    qstTxt.getEditText().getText();
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
                 if(corAns != null)
-                    corAns.getEditText().getText();
+                    newQuiz.current.corrAns = corAns.getEditText();
                 Intent saveQuiz;
                 saveQuiz = new Intent(FreeResponse_Activity.this, MainMenuActivity.class);
                 saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
-        });
+        });*/
 
 
     }

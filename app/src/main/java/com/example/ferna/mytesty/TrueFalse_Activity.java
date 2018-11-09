@@ -36,25 +36,39 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent nextQuestion;
-                nextQuestion = new Intent(TrueFalse_Activity.this, TrueFalse_Activity.class);
-                nextQuestion.putExtra("Quiz", newQuiz);
-                startActivity(nextQuestion);
+                if(qstTxt != null)
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
+                if(trueCheck.hasSelection())
+                    newQuiz.current.truFal = true;
+                else
+                    newQuiz.current.truFal = false;
+                //newQuiz.addQuest(1);
+                finish();
+                //Intent nextQuestion;
+                //nextQuestion = new Intent(TrueFalse_Activity.this, TrueFalse_Activity.class);
+                //nextQuestion.putExtra("Quiz", newQuiz);
+                //startActivity(nextQuestion);
             }
         });
 
-        saveButton = (Button)findViewById(R.id.saveButton2);
+        /*saveButton = (Button)findViewById(R.id.saveButton2);
         saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                if(qstTxt != null)
+                    newQuiz.current.quizQuestion = qstTxt.getEditText();
+                if(trueCheck.hasSelection())
+                    newQuiz.current.truFal = true;
+                else
+                    newQuiz.current.truFal = false;
                 Intent saveQuiz;
                 saveQuiz = new Intent(TrueFalse_Activity.this, MainMenuActivity.class);
                 saveQuiz.putExtra("Quiz", newQuiz);
                 startActivity(saveQuiz);
             }
-        });
+        });*/
 
 
     }

@@ -17,6 +17,7 @@ public class TestTypes extends AppCompatActivity {
 
     private void init()
     {
+        final Quiz newQuiz = new Quiz();
 
         mcButton = (Button)findViewById(R.id.mcButton);
         mcButton.setOnClickListener(new View.OnClickListener()
@@ -24,8 +25,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Quiz newQuiz = new Quiz();
-                Log.d("BAD_BUG", "Everything is terrible!");
+                newQuiz.addQuest(0);
                 Intent openNewMultQuiz;
                 openNewMultQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
                 openNewMultQuiz.putExtra("Quiz", newQuiz);
@@ -39,7 +39,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Quiz newQuiz = new Quiz();
+                newQuiz.addQuest(1);
                 Intent newTFQuiz;
                 newTFQuiz = new Intent(TestTypes.this, TrueFalse_Activity.class);
                 newTFQuiz.putExtra("Quiz", newQuiz);
@@ -53,7 +53,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Quiz newQuiz = new Quiz();
+                newQuiz.addQuest(2);
                 Intent openFreeQuiz;
                 openFreeQuiz = new Intent(TestTypes.this, FreeResponse_Activity.class);
                 openFreeQuiz.putExtra("Quiz", newQuiz);
