@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MultipleChoice_Activity extends AppCompatActivity {
 
     public Button saveButton;
@@ -15,8 +19,10 @@ public class MultipleChoice_Activity extends AppCompatActivity {
     public TextInputLayout incAns1;
     public TextInputLayout incAns2;
     public TextInputLayout incAns3;
+    private FirebaseAuth mAuth;
 
 
+    private DatabaseReference mDatabase;
 
 
 
@@ -47,6 +53,12 @@ public class MultipleChoice_Activity extends AppCompatActivity {
                     newQuiz.current.wrongAns2 = incAns2.getEditText();
                 if(incAns3 != null)
                     newQuiz.current.wrongAns3 = incAns3.getEditText();
+
+                // We added this as means to test adding stuff to the real-time database
+                mAuth = FirebaseAuth.getInstance();
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                mDatabase.child(mAuth.getCurrentUser().getUid()).child("Luis").setValue("17");
                 finish();
 
             }

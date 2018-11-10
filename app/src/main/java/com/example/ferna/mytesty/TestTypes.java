@@ -21,6 +21,9 @@ public class TestTypes extends AppCompatActivity {
     public Button fbButton;
     public Button saveButton;
 
+    private DatabaseReference mDatabase;
+
+
     private void init()
     {
         final Quiz newQuiz = new Quiz();
@@ -73,8 +76,11 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                FirebaseDatabase.getInstance().getReference().push().child("Quiz").setValue(newQuiz);
-                finish();
+
+               // mDatabase = FirebaseDatabase.getInstance().getReference();
+
+               // mDatabase.child("1e4qffl6DyasNsr79AnpRbCzy2b2").child("Quiz").setValue(newQuiz);
+               // finish();
             }
         });
     }
@@ -87,9 +93,4 @@ public class TestTypes extends AppCompatActivity {
         init();
     }
 
-    private DatabaseReference mDatabase;
-
-    {
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-    }
 }
