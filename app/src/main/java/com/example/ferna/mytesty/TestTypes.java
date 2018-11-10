@@ -73,7 +73,7 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                mDatabase.child("Quizzes").child("QuizName").setValue(newQuiz);
+                FirebaseDatabase.getInstance().getReference().push().child("Quiz").setValue(newQuiz);
                 finish();
             }
         });
