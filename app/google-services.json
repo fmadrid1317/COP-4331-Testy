@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "620989108748-u8umg0i42tprnq58e4p6u08iucqt08te.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ferna.mytesty",
+            "certificate_hash": "eef2aeea7b2c08455bf9d0f6591207bee262add6"
+          }
+        },
+        {
           "client_id": "620989108748-6ot7l2shpc8c2f67tojnqgtr7l4prkg7.apps.googleusercontent.com",
           "client_type": 3
         }

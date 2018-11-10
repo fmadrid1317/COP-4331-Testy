@@ -11,7 +11,9 @@ import android.widget.Button;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class TestTypes extends AppCompatActivity {
@@ -20,6 +22,7 @@ public class TestTypes extends AppCompatActivity {
     public Button tfButton;
     public Button fbButton;
     public Button saveButton;
+    private Context context;
 
     private DatabaseReference mDatabase;
 
@@ -76,11 +79,27 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
                // mDatabase = FirebaseDatabase.getInstance().getReference();
-
                // mDatabase.child("1e4qffl6DyasNsr79AnpRbCzy2b2").child("Quiz").setValue(newQuiz);
-               // finish();
+
+                FileOutputStream fos = null;
+                try {
+                    fos = context.openFileOutput("Ye", Context.MODE_PRIVATE);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try (ObjectOutputStream os = new ObjectOutputStream(fos))
+                {
+                    os.writeObject(newQuiz);
+                    os.close();
+                    fos.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+
+                finish();
             }
         });
     }
