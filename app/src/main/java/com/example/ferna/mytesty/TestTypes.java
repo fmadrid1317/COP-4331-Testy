@@ -2,6 +2,7 @@ package com.example.ferna.mytesty;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +10,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
+
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
 public class TestTypes extends AppCompatActivity {
@@ -25,11 +39,15 @@ public class TestTypes extends AppCompatActivity {
     public TextInputLayout quizName;
     private Context context = this;
 
+
+
+
     private DatabaseReference mDatabase;
 
 
     private void init()
     {
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
         final Quiz newQuiz = new Quiz();
 
         quizName = findViewById(R.id.qizName);
@@ -83,6 +101,7 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 FileOutputStream fos = null;
+
                 try {
                     fos = context.openFileOutput(quizName.getEditText().toString(), Context.MODE_PRIVATE);
                 } catch (FileNotFoundException e) {
@@ -94,12 +113,57 @@ public class TestTypes extends AppCompatActivity {
                     os.writeObject(newQuiz);
                     os.close();
                     fos.close();
-                    //Log.d("Uhh", "FUG");
                 }
                 catch (IOException e)
                 {
                     e.printStackTrace();
                 }
+
+
+
+                //Upload to cloud nonsense
+                UploadTask uploadTask = null;
+                StorageReference storageRef = storage.getReference();
+                StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString());
+                StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString());
+
+                // While the file names are the same, the references point to different files
+                quizRef.getName().equals(quizUserRef.getName());    // true
+                quizRef.getPath().equals(quizUserRef.getPath());    // false
+
+                byte[] yourBytes = null;
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ObjectOutput out = null;
+                try {
+                    out = new ObjectOutputStream(bos);
+                    out.writeObject(newQuiz);
+                    out.flush();
+                    yourBytes = bos.toByteArray();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        bos.close();
+                    } catch (IOException ex) {
+                        // ignore close exception
+                    }
+                }
+
+
+
+                uploadTask = quizRef.putBytes(yourBytes);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                        // ...
+                    }
+                });
 
                 finish();
             }
@@ -111,6 +175,7 @@ public class TestTypes extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_types);
+        FirebaseStorage storage = FirebaseStorage.getInstance();
         init();
     }
 
