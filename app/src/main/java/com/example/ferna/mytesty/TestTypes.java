@@ -124,8 +124,8 @@ public class TestTypes extends AppCompatActivity {
                 //Upload to cloud nonsense
                 UploadTask uploadTask = null;
                 StorageReference storageRef = storage.getReference();
-                StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString());
-                StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString());
+                StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");
+                StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString() + ".qiz");
 
                 // While the file names are the same, the references point to different files
                 quizRef.getName().equals(quizUserRef.getName());    // true
