@@ -34,7 +34,7 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(1, qstTxt.getEditText(), null, null, null, null, trueCheck.hasSelection());
+                newQuiz.addQuest(1, qstTxt.getEditText().toString(), null, null, null, null, trueCheck.hasSelection());
                 Intent testTypes = new Intent(TrueFalse_Activity.this, TestTypes.class);
                 testTypes.putExtra("Quiz", newQuiz);
                 startActivity(testTypes);

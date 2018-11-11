@@ -17,7 +17,7 @@ public class Quiz implements Serializable
         Question head = null;
     }
 
-    void addQuest(int questType, EditText qQuestion, EditText corAns, EditText wroAns1, EditText wroAns2, EditText wroAns3, Boolean tF)
+    void addQuest(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
     {
         Question newQuest = new Question(questType, qQuestion, corAns, wroAns1, wroAns2, wroAns3, tF);
         newQuest.next = head;
@@ -33,15 +33,15 @@ public class Quiz implements Serializable
     class Question implements Serializable
     {
         int quesType;
-        EditText quizQuestion;
-        EditText corrAns;
-        EditText wrongAns1;
-        EditText wrongAns2;
-        EditText wrongAns3;
+        String quizQuestion;
+        String corrAns;
+        String wrongAns1;
+        String wrongAns2;
+        String wrongAns3;
         Boolean truFal;
         Question previous, next;
 
-        Question(int questType, EditText qQuestion, EditText corAns, EditText wroAns1, EditText wroAns2, EditText wroAns3, Boolean tF)
+        Question(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
         {
             quesType = questType;
             quizQuestion = qQuestion;

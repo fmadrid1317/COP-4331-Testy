@@ -42,7 +42,8 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(0, qstTxt.getEditText(), corAns.getEditText(), incAns1.getEditText(), incAns2.getEditText(), incAns3.getEditText(), null);
+                newQuiz.addQuest(0, qstTxt.getEditText().toString(), corAns.getEditText().toString(), incAns1.getEditText().toString(),
+                                    incAns2.getEditText().toString(), incAns3.getEditText().toString(), null);
                 Intent testTypes = new Intent(MultipleChoice_Activity.this, TestTypes.class);
                 testTypes.putExtra("Quiz", newQuiz);
                 startActivity(testTypes);
