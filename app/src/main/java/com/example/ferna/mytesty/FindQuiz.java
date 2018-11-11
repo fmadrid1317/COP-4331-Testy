@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,6 +17,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
@@ -24,13 +26,16 @@ public class FindQuiz extends AppCompatActivity
 {
     public Button findButton;
     public TextInputLayout quizName;
+    public ObjectInput in = null;
     private DatabaseReference mDatabase;
-
+    public Quiz newQuiz;
+    public FirebaseStorage storage;
 
     private void init()
     {
-        final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final Quiz newQuiz = null;
+        storage = FirebaseStorage.getInstance();
+
+        quizName = findViewById(R.id.fndQuiz);
 
         findButton = (Button)findViewById(R.id.findButton);
         findButton.setOnClickListener(new View.OnClickListener()
@@ -39,20 +44,45 @@ public class FindQuiz extends AppCompatActivity
             public void onClick(View v)
             {
                 //Download Bytes from Cloud nonsense
-                byte[] bytes = null;
                 UploadTask uploadTask = null;
                 StorageReference storageRef = storage.getReference();
                 StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");
-                StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString() + ".qiz");
-                StorageReference gsReference = storage.getReferenceFromUrl("gs://bucket/user/"+quizName.getEditText().getText().toString()+".qiz");
-
-                StorageReference islandRef = storageRef.child("images/island.jpg");
+                //StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString() + ".qiz");
+                //StorageReference quizUserRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");
+                //StorageReference gsReference = storage.getReferenceFromUrl("gs://cop-4331c-project-testy.appspot.com"+quizName.getEditText().getText().toString()+".qiz");
 
                 final long ONE_MEGABYTE = 1024 * 1024;
-                islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                quizRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
-                    public void onSuccess(byte[] bytes) {
-                        // Data for "images/island.jpg" is returns, use this as needed
+                    public void onSuccess(byte[] bytes)
+                    {
+                        //Make The Quiz
+                        try
+                        {
+                            ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+                            in = new ObjectInputStream(bis);
+                            newQuiz = (Quiz)in.readObject();
+                        }
+                        catch (IOException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        catch (ClassNotFoundException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        finally
+                        {
+                            try
+                            {
+                                if (in != null)
+                                    in.close();
+                            }
+                            catch (IOException ex)
+                            {
+                                // ignore close exception
+                            }
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -61,26 +91,7 @@ public class FindQuiz extends AppCompatActivity
                     }
                 });
 
-                //MakeTheQuiz (Still Needs Work)
-                /*ObjectInput in = null;
-                try {
-                    in = new ObjectInputStream(bytes);
-                    newQuiz = in.readObject();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (in != null) {
-                            in.close();
-                        }
-                    } catch (IOException ex) {
-                        // ignore close exception
-                    }
-                }
-
-                finish();*/
+                finish();
             }
         });
     }
@@ -90,7 +101,7 @@ public class FindQuiz extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_quiz);
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storage = FirebaseStorage.getInstance();
         init();
     }
 }
