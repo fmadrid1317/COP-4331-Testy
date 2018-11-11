@@ -1,0 +1,14 @@
+Below are instructions for the user currently on the Testy home page to complete each test.
+
+ID
+000     Press "Create Test", choose any option, enter a question and answers, click save, click "Open Test", check if test is present.
+001     Press "Edit Test", choose the test you want to edit, press "Add question", fill in the information. Verify
+002     Press "Find quizzes", verify that some are present.
+003     Press the menu icon, press sign in, press create profile, create the profile. Verify.
+004     Press the menu icon, press my profile, verify that points are shown.
+005     Press "Create Test", choose any option, enter a question and answers, press "Insert Image", verify that it's insertted.
+006     Press "Find quizzes", verify that some are present, press the option menu by a quiz, press "Give Feedback", type feedback and send.
+007     Press "Open Test", press "My Tests", choose a test, press the options menu in the top right corner, press "Push Feedback", type feedback and send
+008     Navigate the interface and look for dropped frames.
+009     Press "Create Test", choose any option, enter a question, mark the correct answer below. Go home -> Open Tests -> My Tests -> the new test. Enter correct answer, verify score.
+010     Press "Create Test", choose any option, enter a question and answers, click save, click "Open Test", check if test is present. Now delete all data for the app, open and log in, verify that test is still present.
