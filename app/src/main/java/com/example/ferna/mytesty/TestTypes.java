@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,15 +17,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-
-
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
@@ -38,10 +29,6 @@ public class TestTypes extends AppCompatActivity {
     public Button saveButton;
     public TextInputLayout quizName;
     private Context context = this;
-
-
-
-
     private DatabaseReference mDatabase;
 
 
@@ -100,27 +87,6 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                FileOutputStream fos = null;
-
-                try {
-                    fos = context.openFileOutput(quizName.getEditText().toString(), Context.MODE_PRIVATE);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                try (ObjectOutputStream os = new ObjectOutputStream(fos))
-                {
-
-                    os.writeObject(newQuiz);
-                    os.close();
-                    fos.close();
-                }
-                catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
-
-
-
                 //Upload to cloud nonsense
                 UploadTask uploadTask = null;
                 StorageReference storageRef = storage.getReference();
@@ -149,8 +115,6 @@ public class TestTypes extends AppCompatActivity {
                     }
                 }
 
-
-
                 uploadTask = quizRef.putBytes(yourBytes);
                 uploadTask.addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -164,7 +128,6 @@ public class TestTypes extends AppCompatActivity {
                         // ...
                     }
                 });
-
                 finish();
             }
         });

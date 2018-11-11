@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 public class MainMenuActivity extends AppCompatActivity {
 
     public Button newTestButton;
+    public Button takeTestButton;
     public Button signoutButton;
     private FirebaseAuth mAuth;
 
@@ -27,6 +28,16 @@ public class MainMenuActivity extends AppCompatActivity {
                 Intent openTestTypes;
                 openTestTypes = new Intent(MainMenuActivity.this, TestTypes.class);
                 startActivity(openTestTypes);
+            }
+        });
+
+        takeTestButton = (Button)findViewById(R.id.openTestButton);
+        takeTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent findQuiz;
+                findQuiz = new Intent(MainMenuActivity.this, FindQuiz.class);
+                startActivity(findQuiz);
             }
         });
 
