@@ -2,6 +2,7 @@ package com.example.ferna.mytesty;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -22,7 +22,8 @@ public class TestTypes extends AppCompatActivity {
     public Button tfButton;
     public Button fbButton;
     public Button saveButton;
-    private Context context;
+    public TextInputLayout quizName;
+    private Context context = this;
 
     private DatabaseReference mDatabase;
 
@@ -30,6 +31,8 @@ public class TestTypes extends AppCompatActivity {
     private void init()
     {
         final Quiz newQuiz = new Quiz();
+
+        quizName = findViewById(R.id.qizName);
 
         mcButton = (Button)findViewById(R.id.mcButton);
         mcButton.setOnClickListener(new View.OnClickListener()
@@ -79,20 +82,19 @@ public class TestTypes extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-               // mDatabase = FirebaseDatabase.getInstance().getReference();
-               // mDatabase.child("1e4qffl6DyasNsr79AnpRbCzy2b2").child("Quiz").setValue(newQuiz);
-
                 FileOutputStream fos = null;
                 try {
-                    fos = context.openFileOutput("Ye", Context.MODE_PRIVATE);
+                    fos = context.openFileOutput(quizName.getEditText().toString(), Context.MODE_PRIVATE);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 try (ObjectOutputStream os = new ObjectOutputStream(fos))
                 {
+
                     os.writeObject(newQuiz);
                     os.close();
                     fos.close();
+                    //Log.d("Uhh", "FUG");
                 }
                 catch (IOException e)
                 {
