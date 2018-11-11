@@ -35,3 +35,14 @@ Testy will be an Android app that assists college students with their course wor
 - [Testcases](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/Testcases.txt)
 - [Demonstration](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/Testy%20Demonstration.mp4)
 - [APK](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint2/Testy.apk)
+
+# Sprint 3
+
+- [Product Backlog](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Product%20Backlog.md)
+- [Sprint Backlog](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Sprint%20Backlog.md)
+- [Burndown Chart]()
+- [Requirements](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Requirements.md)
+- [UML Diagrams](https://github.com/fmadrid1317/COP-4331C-Project-Testy/tree/master/Sprint3/UML%20Diagrams)
+- [Testcases](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Testcases.txt)
+- [Demonstration]()
+- [APK]()
