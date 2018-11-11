@@ -1,5 +1,6 @@
 package com.example.ferna.mytesty;
 
+import android.util.Log;
 import android.widget.EditText;
 
 import java.io.Serializable;
@@ -10,25 +11,23 @@ import java.io.Serializable;
 public class Quiz implements Serializable
 {
     Question head;
-    Question current;
 
     Quiz()
     {
-        head = new Question(0);
-        current = head;
+        Question head = null;
     }
 
-    void addQuest(int questType)
+    void addQuest(int questType, EditText qQuestion, EditText corAns, EditText wroAns1, EditText wroAns2, EditText wroAns3, Boolean tF)
     {
-        Question newQuest = new Question(questType);
-        current.next = newQuest;
-        newQuest.previous = current;
-        current = newQuest;
-    }
+        Question newQuest = new Question(questType, qQuestion, corAns, wroAns1, wroAns2, wroAns3, tF);
+        newQuest.next = head;
+        newQuest.previous = null;
+        if(newQuest.next == null)
+            Log.d("aaa", "AAAAAAAAAA");
+        if (head != null)
+            head.previous = newQuest;
 
-    void toHead()
-    {
-        current = head;
+        head = newQuest;
     }
 
     class Question implements Serializable
@@ -42,15 +41,15 @@ public class Quiz implements Serializable
         Boolean truFal;
         Question previous, next;
 
-        Question(int questType)
+        Question(int questType, EditText qQuestion, EditText corAns, EditText wroAns1, EditText wroAns2, EditText wroAns3, Boolean tF)
         {
             quesType = questType;
-            quizQuestion = null;
-            corrAns = null;
-            wrongAns1 = null;
-            wrongAns2 = null;
-            wrongAns3 = null;
-            truFal = null;
+            quizQuestion = qQuestion;
+            corrAns = corAns;
+            wrongAns1 = wroAns1;
+            wrongAns2 = wroAns2;
+            wrongAns3 = wroAns3;
+            truFal = tF;
             previous = null;
             next = null;
         }

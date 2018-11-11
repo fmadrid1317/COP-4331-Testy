@@ -20,7 +20,7 @@ public class MultipleChoice_Activity extends AppCompatActivity {
     public TextInputLayout incAns2;
     public TextInputLayout incAns3;
     private FirebaseAuth mAuth;
-
+    public Quiz newQuiz;
 
     private DatabaseReference mDatabase;
 
@@ -28,7 +28,7 @@ public class MultipleChoice_Activity extends AppCompatActivity {
 
     private void init(){
         Intent i = getIntent();
-        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+        newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
         qstTxt = findViewById(R.id.qstTxt);
         corAns = findViewById(R.id.corAns);
@@ -42,23 +42,10 @@ public class MultipleChoice_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(0);
-                if(qstTxt != null)
-                    newQuiz.current.quizQuestion = qstTxt.getEditText();
-                if(corAns != null)
-                    newQuiz.current.corrAns = corAns.getEditText();
-                if(incAns1 != null)
-                    newQuiz.current.wrongAns1 = incAns1.getEditText();
-                if(incAns2 != null)
-                    newQuiz.current.wrongAns2 = incAns2.getEditText();
-                if(incAns3 != null)
-                    newQuiz.current.wrongAns3 = incAns3.getEditText();
-
-                // We added this as means to test adding stuff to the real-time database
-                mAuth = FirebaseAuth.getInstance();
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-
-                mDatabase.child(mAuth.getCurrentUser().getUid()).child("Luis").setValue("17");
+                newQuiz.addQuest(0, qstTxt.getEditText(), corAns.getEditText(), incAns1.getEditText(), incAns2.getEditText(), incAns3.getEditText(), null);
+                Intent testTypes = new Intent(MultipleChoice_Activity.this, TestTypes.class);
+                testTypes.putExtra("Quiz", newQuiz);
+                startActivity(testTypes);
                 finish();
 
             }

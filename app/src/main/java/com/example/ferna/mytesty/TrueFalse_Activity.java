@@ -16,12 +16,13 @@ public class TrueFalse_Activity extends AppCompatActivity
     public TextInputLayout qstTxt;
     public CheckBox trueCheck;
     public CheckBox falseCheck;
+    public Quiz newQuiz;
 
 
     private void init()
     {
         Intent i = getIntent();
-        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+        newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
         qstTxt = findViewById(R.id.qstTxt);
         trueCheck = findViewById(R.id.trueCheck);
@@ -33,13 +34,10 @@ public class TrueFalse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(1);
-                if(qstTxt != null)
-                    newQuiz.current.quizQuestion = qstTxt.getEditText();
-                if(trueCheck.hasSelection())
-                    newQuiz.current.truFal = true;
-                else
-                    newQuiz.current.truFal = false;
+                newQuiz.addQuest(1, qstTxt.getEditText(), null, null, null, null, trueCheck.hasSelection());
+                Intent testTypes = new Intent(TrueFalse_Activity.this, TestTypes.class);
+                testTypes.putExtra("Quiz", newQuiz);
+                startActivity(testTypes);
                 finish();
             }
         });

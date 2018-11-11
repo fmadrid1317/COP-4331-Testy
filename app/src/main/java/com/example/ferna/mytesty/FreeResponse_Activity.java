@@ -13,14 +13,15 @@ public class FreeResponse_Activity extends AppCompatActivity
     public Button saveButton;
     public TextInputLayout qstTxt;
     public TextInputLayout corAns;
+    public Quiz newQuiz;
 
     private void init()
     {
         Intent i = getIntent();
-        final Quiz newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+        newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
         qstTxt = findViewById(R.id.qstTxt);
-        corAns = findViewById(R.id.corAns);
+        corAns = findViewById(R.id.ansTxt);
 
         saveButton = (Button)findViewById(R.id.saveButton3);
         saveButton.setOnClickListener(new View.OnClickListener()
@@ -28,11 +29,10 @@ public class FreeResponse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(2);
-                if(qstTxt != null)
-                    newQuiz.current.quizQuestion = qstTxt.getEditText();
-                if(corAns != null)
-                    newQuiz.current.corrAns = corAns.getEditText();
+                newQuiz.addQuest(2, qstTxt.getEditText(), corAns.getEditText(), null, null, null, null);
+                Intent testTypes = new Intent(FreeResponse_Activity.this, TestTypes.class);
+                testTypes.putExtra("Quiz", newQuiz);
+                startActivity(testTypes);
                 finish();
             }
         });

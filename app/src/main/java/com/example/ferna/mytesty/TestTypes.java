@@ -30,12 +30,17 @@ public class TestTypes extends AppCompatActivity {
     public TextInputLayout quizName;
     private Context context = this;
     private DatabaseReference mDatabase;
+    public Quiz newQuiz;
 
 
     private void init()
     {
         final FirebaseStorage storage = FirebaseStorage.getInstance();
-        final Quiz newQuiz = new Quiz();
+        Intent i = getIntent();
+        if(i.getSerializableExtra("Quiz") != null)
+            newQuiz = (Quiz)i.getSerializableExtra("Quiz");
+        else
+            newQuiz = new Quiz();
 
         quizName = findViewById(R.id.qizName);
 
@@ -50,6 +55,7 @@ public class TestTypes extends AppCompatActivity {
                 openNewMultQuiz = new Intent(TestTypes.this, MultipleChoice_Activity.class);
                 openNewMultQuiz.putExtra("Quiz", newQuiz);
                 startActivity(openNewMultQuiz);
+                finish();
             }
         });
 
@@ -64,6 +70,7 @@ public class TestTypes extends AppCompatActivity {
                 newTFQuiz = new Intent(TestTypes.this, TrueFalse_Activity.class);
                 newTFQuiz.putExtra("Quiz", newQuiz);
                 startActivity(newTFQuiz);
+                finish();
             }
         });
 
@@ -78,6 +85,7 @@ public class TestTypes extends AppCompatActivity {
                 openFreeQuiz = new Intent(TestTypes.this, FreeResponse_Activity.class);
                 openFreeQuiz.putExtra("Quiz", newQuiz);
                 startActivity(openFreeQuiz);
+                finish();
             }
         });
 
