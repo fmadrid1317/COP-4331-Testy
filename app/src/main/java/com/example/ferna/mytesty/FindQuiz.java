@@ -62,6 +62,12 @@ public class FindQuiz extends AppCompatActivity
                             ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
                             in = new ObjectInputStream(bis);
                             newQuiz = (Quiz)in.readObject();
+
+                            Intent takeQuiz;
+                            takeQuiz = new Intent(FindQuiz.this, TakeQuiz.class);
+                            takeQuiz.putExtra("Quiz", newQuiz);
+                            startActivity(takeQuiz);
+                            Log.d("yuh", "YUH");
                         }
                         catch (IOException e)
                         {
