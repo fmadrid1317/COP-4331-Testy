@@ -69,6 +69,8 @@ public class Quiz implements Serializable
         private String wrongAns3;
         private Boolean truFal;
         private Boolean answeredCorrect;
+        private String savedAnswer;
+        private Boolean checkRandom;
         Question previous, next;
 
         Question(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
@@ -81,22 +83,11 @@ public class Quiz implements Serializable
             setWrongAns3(wroAns3);
             setTruFal(tF);
             setAnsweredCorrect(false);
+            setSavedAnswer("zzzzqqqq1");
+            setCheckRandom(false);
             previous = null;
             next = null;
         }
-
-        //Copies i's data to j
-        void questDupe(Question i, Question j)
-        {
-            j.setQuesType(i.getQuesType());
-            j.setQuizQuestion(i.getQuizQuestion());
-            j.setCorrAns(i.getCorrAns());
-            j.setWrongAns1(i.getWrongAns1());
-            j.setWrongAns2(i.getWrongAns2());
-            j.setWrongAns3(i.getWrongAns3());
-            j.setTruFal(i.getTruFal());
-        }
-
 
         public String getQuizQuestion() {
             return quizQuestion;
@@ -160,6 +151,22 @@ public class Quiz implements Serializable
 
         public void setAnsweredCorrect(Boolean answeredCorrect) {
             this.answeredCorrect = answeredCorrect;
+        }
+
+        public String getSavedAnswer() {
+            return savedAnswer;
+        }
+
+        public void setSavedAnswer(String savedAnswer) {
+            this.savedAnswer = savedAnswer;
+        }
+
+        public Boolean getCheckRandom() {
+            return checkRandom;
+        }
+
+        public void setCheckRandom(Boolean checkRandom) {
+            this.checkRandom = checkRandom;
         }
     }
 

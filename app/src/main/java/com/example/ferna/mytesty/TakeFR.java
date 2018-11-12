@@ -36,11 +36,27 @@ public class TakeFR extends AppCompatActivity {
 
         quesText.setText(newQuiz.current.getQuizQuestion());
 
+        loadAnswer();
+
         //Go to next question or show score on button click
         findNext();
 
         //Go to previous question on button click
         findPrevious();
+
+    }
+
+    private void loadAnswer()
+    {
+        if(!newQuiz.current.getSavedAnswer().equals("zzzzqqqq1"))
+            ansTxt.getEditText().setText(newQuiz.current.getSavedAnswer());
+    }
+
+    private void saveAnswer()
+    {
+        if(ansTxt.getEditText().getText().toString() != null)
+            newQuiz.current.setSavedAnswer(ansTxt.getEditText().getText().toString());
+
 
     }
 
@@ -60,6 +76,7 @@ public class TakeFR extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.next != null) {
                     newQuiz.nextQuestion();
                     if (newQuiz.current.getQuesType() == 0) {
@@ -98,6 +115,7 @@ public class TakeFR extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.previous != null)
                 {
                     newQuiz.previousQuestion();

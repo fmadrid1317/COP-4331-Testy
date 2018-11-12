@@ -44,6 +44,8 @@ public class TakeMC extends AppCompatActivity {
         ans3.setText(newQuiz.current.getWrongAns2());
         ans4.setText(newQuiz.current.getWrongAns3());
 
+        loadAnswer();
+
         //Make sure only one box is checked
         onlyCheckOne();
 
@@ -57,6 +59,31 @@ public class TakeMC extends AppCompatActivity {
 
     private void randomAssign()
     {
+
+    }
+
+    private void loadAnswer()
+    {
+        if(newQuiz.current.getSavedAnswer().equals("0"))
+            ans1.toggle();
+        else if(newQuiz.current.getSavedAnswer().equals("1"))
+            ans2.toggle();
+        else if(newQuiz.current.getSavedAnswer().equals("2"))
+            ans3.toggle();
+        else if(newQuiz.current.getSavedAnswer().equals("3"))
+            ans4.toggle();
+    }
+
+    private void saveAnswer()
+    {
+        if(ans1.isChecked())
+            newQuiz.current.setSavedAnswer("0");
+        else if(ans2.isChecked())
+            newQuiz.current.setSavedAnswer("1");
+        else if(ans3.isChecked())
+            newQuiz.current.setSavedAnswer("2");
+        else if(ans4.isChecked())
+            newQuiz.current.setSavedAnswer("3");
 
     }
 
@@ -155,6 +182,7 @@ public class TakeMC extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.next != null) {
                     newQuiz.nextQuestion();
                     if (newQuiz.current.getQuesType() == 0) {
@@ -193,6 +221,7 @@ public class TakeMC extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.previous != null)
                 {
                     newQuiz.previousQuestion();

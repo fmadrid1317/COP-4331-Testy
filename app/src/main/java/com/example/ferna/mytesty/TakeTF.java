@@ -36,6 +36,9 @@ public class TakeTF extends AppCompatActivity {
 
         quesText.setText(newQuiz.current.getQuizQuestion());
 
+        //If question was already visited and attempted, loads the previous answer
+        loadAnswer();
+
         //Make sure only one box is checked
         onlyCheckOne();
 
@@ -44,6 +47,23 @@ public class TakeTF extends AppCompatActivity {
 
         //Go to previous question on button click
         findPrevious();
+
+    }
+
+    private void loadAnswer()
+    {
+        if(newQuiz.current.getSavedAnswer().equals("1"))
+            tru.toggle();
+        else if(newQuiz.current.getSavedAnswer().equals("0"))
+            fal.toggle();
+    }
+
+    private void saveAnswer()
+    {
+        if(tru.isChecked())
+            newQuiz.current.setSavedAnswer("1");
+        else if(fal.isChecked())
+            newQuiz.current.setSavedAnswer("0");
 
     }
 
@@ -94,6 +114,7 @@ public class TakeTF extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.next != null) {
                     newQuiz.nextQuestion();
                     if (newQuiz.current.getQuesType() == 0) {
@@ -132,6 +153,7 @@ public class TakeTF extends AppCompatActivity {
             public void onClick(View v)
             {
                 checkAnswer();
+                saveAnswer();
                 if(newQuiz.current.previous != null)
                 {
                     newQuiz.previousQuestion();
