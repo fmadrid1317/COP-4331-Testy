@@ -63,11 +63,6 @@ public class FindQuiz extends AppCompatActivity
                             in = new ObjectInputStream(bis);
                             newQuiz = (Quiz)in.readObject();
 
-                            Intent takeQuiz;
-                            takeQuiz = new Intent(FindQuiz.this, TakeQuiz.class);
-                            takeQuiz.putExtra("Quiz", newQuiz);
-                            startActivity(takeQuiz);
-                            Log.d("yuh", "YUH");
                         }
                         catch (IOException e)
                         {
@@ -97,7 +92,11 @@ public class FindQuiz extends AppCompatActivity
                     }
                 });
 
-
+                Intent takeQuiz;
+                takeQuiz = new Intent(FindQuiz.this, TakeQuiz.class);
+                takeQuiz.putExtra("Quiz", newQuiz);
+                startActivity(takeQuiz);
+                Log.d("yuh", "YUH");
 
                 finish();
             }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,6 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 public class TakeQuiz extends AppCompatActivity {
+
+    private static final String TAG = "TakeQuiz";
 
     public Quiz newQuiz;
     public TextView question;
@@ -27,6 +30,7 @@ public class TakeQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_take_quiz);
 
+
         Intent tkQuiz = getIntent();
 
 
@@ -37,10 +41,23 @@ public class TakeQuiz extends AppCompatActivity {
 
         newQuiz.nextQuestion();
 
+
+       // Log.d(TAG, "The magic number is "+newQuiz.current.getQuesType());
+
+
+        // System.out.println("The magic number is "+newQuiz.current.getQuesType());
+
         while(newQuiz.current != null) {
+
+
 
             //Multiple Choice
             if (newQuiz.current.getQuesType() == 0) {
+
+               /* Intent takeMC;
+                takeMC = new Intent(TakeQuiz.this, TakeMC.class);
+                takeMC.putExtra("Quiz", newQuiz);
+                startActivity(takeMC);*/
                 setContentView(R.layout.activity_take_mc);
                 question = (TextView)findViewById(R.id.mcText);
                 question.setText(newQuiz.current.getQuizQuestion());
@@ -52,16 +69,6 @@ public class TakeQuiz extends AppCompatActivity {
                 chkBox3.setText(newQuiz.current.getWrongAns2());
                 chkBox4 = (CheckBox)findViewById(R.id.checkBox4);
                 chkBox4.setText(newQuiz.current.getWrongAns3());
-                prev = (Button) findViewById(R.id.prvQuest);
-                next = (Button) findViewById(R.id.nxtQuest);
-                next.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        newQuiz.nextQuestion();
-
-                    }
-                });
-                //newQuiz.nextQuestion();
 
              //True False
             }else if (newQuiz.current.getQuesType() == 1) {
