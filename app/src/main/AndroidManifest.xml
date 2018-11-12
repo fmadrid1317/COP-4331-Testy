@@ -31,7 +31,12 @@
         <activity android:name=".FreeResponse_Activity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".FindQuiz" />
-        <activity android:name=".TakeQuiz"></activity>
+        <activity android:name=".TakeQuiz"/>
+        <activity android:name=".TakeMC"/>
+        <activity android:name=".TakeTF"/>
+        <activity android:name=".TakeFR"/>
+        <activity android:name=".GetScore">
+        </activity>
     </application>
 
 </manifest>

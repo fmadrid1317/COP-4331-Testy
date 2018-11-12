@@ -29,7 +29,7 @@ public class FreeResponse_Activity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(2, qstTxt.getEditText().toString(), corAns.getEditText().toString(), null, null, null, null);
+                newQuiz.addQuest(2, qstTxt.getEditText().getText().toString(), corAns.getEditText().getText().toString(), null, null, null, null);
                 Intent testTypes = new Intent(FreeResponse_Activity.this, TestTypes.class);
                 testTypes.putExtra("Quiz", newQuiz);
                 startActivity(testTypes);

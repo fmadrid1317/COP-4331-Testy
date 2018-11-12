@@ -27,14 +27,44 @@ public class TrueFalse_Activity extends AppCompatActivity
         qstTxt = findViewById(R.id.qstTxt);
         trueCheck = findViewById(R.id.trueCheck);
         falseCheck = findViewById(R.id.falseCheck);
+        saveButton = findViewById(R.id.saveButton2);
 
-        saveButton = (Button)findViewById(R.id.saveButton2);
+        trueCheck.toggle();
+
+        //Make sure only one box is checked
+        trueCheck.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(falseCheck.isChecked())
+                    falseCheck.toggle();
+
+                if(!trueCheck.isChecked())
+                    trueCheck.toggle();
+            }
+        });
+
+        falseCheck.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(!falseCheck.isChecked())
+                    falseCheck.toggle();
+
+                if(trueCheck.isChecked())
+                    trueCheck.toggle();
+            }
+        });
+
+
         saveButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                newQuiz.addQuest(1, qstTxt.getEditText().toString(), null, null, null, null, trueCheck.hasSelection());
+                newQuiz.addQuest(1, qstTxt.getEditText().getText().toString(), null, null, null, null, trueCheck.hasSelection());
                 Intent testTypes = new Intent(TrueFalse_Activity.this, TestTypes.class);
                 testTypes.putExtra("Quiz", newQuiz);
                 startActivity(testTypes);

@@ -54,13 +54,12 @@
         android:id="@+id/sign_out_button"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="127dp"
         android:layout_marginEnd="74dp"
         android:layout_marginStart="74dp"
         android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent" />
 
 

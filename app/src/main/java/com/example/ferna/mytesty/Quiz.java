@@ -21,12 +21,22 @@ public class Quiz implements Serializable
     void addQuest(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
     {
         Question newQuest = new Question(questType, qQuestion, corAns, wroAns1, wroAns2, wroAns3, tF);
-        newQuest.next = head;
-        newQuest.previous = null;
-        if (head != null)
-            head.previous = newQuest;
+        if(head == null)
+        {
+            head = newQuest;
+            current = head;
+        }
+        else
+        {
+            current.next = newQuest;
+            newQuest.previous = current;
+            current = newQuest;
+        }
+    }
 
-        head = newQuest;
+    void finish()
+    {
+        current = null;
     }
 
     void nextQuestion()

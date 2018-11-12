@@ -57,32 +57,32 @@ public class FindQuiz extends AppCompatActivity
                     public void onSuccess(byte[] bytes)
                     {
                         //Make The Quiz
-                        try
-                        {
-                            ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-                            in = new ObjectInputStream(bis);
-                            newQuiz = (Quiz)in.readObject();
+                        newQuiz = setData(bytes);
+                        newQuiz.nextQuestion();
 
-                        }
-                        catch (IOException e)
+                        //Start the quiz
+                        if(newQuiz.head.getQuesType() == 0)
                         {
-                            e.printStackTrace();
+                            Intent takeMC = new Intent(FindQuiz.this, TakeMC.class);
+                            takeMC.putExtra("Quiz", newQuiz);
+                            startActivity(takeMC);
+                            finish();
                         }
-                        catch (ClassNotFoundException e)
+
+                        else if(newQuiz.head.getQuesType() == 1)
                         {
-                            e.printStackTrace();
+                            Intent takeTF = new Intent(FindQuiz.this, TakeTF.class);
+                            takeTF.putExtra("Quiz", newQuiz);
+                            startActivity(takeTF);
+                            finish();
                         }
-                        finally
+
+                        else if(newQuiz.head.getQuesType() == 2)
                         {
-                            try
-                            {
-                                if (in != null)
-                                    in.close();
-                            }
-                            catch (IOException ex)
-                            {
-                                // ignore close exception
-                            }
+                            Intent takeFR = new Intent(FindQuiz.this, TakeFR.class);
+                            takeFR.putExtra("Quiz", newQuiz);
+                            startActivity(takeFR);
+                            finish();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -92,17 +92,42 @@ public class FindQuiz extends AppCompatActivity
                     }
                 });
 
-                Intent takeQuiz;
-                takeQuiz = new Intent(FindQuiz.this, TakeQuiz.class);
-                takeQuiz.putExtra("Quiz", newQuiz);
-                startActivity(takeQuiz);
-                Log.d("yuh", "YUH");
-
-                finish();
+                //finish();
             }
         });
     }
 
+    private Quiz setData(byte[] bytes)
+    {
+        Quiz tempQuiz = null;
+        try
+        {
+            ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+            in = new ObjectInputStream(bis);
+            tempQuiz = (Quiz)in.readObject();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if (in != null)
+                    in.close();
+            }
+            catch (IOException ex)
+            {
+                // ignore close exception
+            }
+            return tempQuiz;
+        }
+    }
 
     protected void onCreate(Bundle savedInstanceState)
     {

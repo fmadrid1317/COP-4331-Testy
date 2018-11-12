@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -96,6 +97,7 @@ public class TestTypes extends AppCompatActivity {
             public void onClick(View v)
             {
                 //Upload to cloud nonsense
+                newQuiz.finish();
                 UploadTask uploadTask = null;
                 StorageReference storageRef = storage.getReference();
                 StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");

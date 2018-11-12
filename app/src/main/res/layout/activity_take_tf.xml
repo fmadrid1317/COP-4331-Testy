@@ -10,36 +10,36 @@
         android:id="@+id/falseBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="151dp"
+        android:layout_marginBottom="200dp"
         android:layout_marginEnd="210dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="300dp"
         android:text="False"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/prvQuest3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trueBox" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/trueBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="300dp"
         android:layout_marginEnd="210dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="200dp"
         android:text="True"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/falseBox"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tfText"
-        android:layout_width="121dp"
-        android:layout_height="40dp"
+        android:layout_width="375dp"
+        android:layout_height="106dp"
         android:layout_marginBottom="433dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
@@ -58,13 +58,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="447dp"
         android:text="Previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nxtQuest"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nxtQuest3"
