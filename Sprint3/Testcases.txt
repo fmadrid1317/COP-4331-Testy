@@ -1,14 +1,15 @@
 Below are instructions for the user currently on the Testy home page to complete each test.
 
 ID
-000     Press "Create Test", choose any option, enter a question and answers, click save, click "Open Test", check if test is present.
-001     Press "Edit Test", choose the test you want to edit, press "Add question", fill in the information. Verify
-002     Press "Find quizzes", verify that some are present.
-003     Press the menu icon, press sign in, press create profile, create the profile. Verify.
-004     Press the menu icon, press my profile, verify that points are shown.
-005     Press "Create Test", choose any option, enter a question and answers, press "Insert Image", verify that it's insertted.
-006     Press "Find quizzes", verify that some are present, press the option menu by a quiz, press "Give Feedback", type feedback and send.
-007     Press "Open Test", press "My Tests", choose a test, press the options menu in the top right corner, press "Push Feedback", type feedback and send
-008     Navigate the interface and look for dropped frames.
-009     Press "Create Test", choose any option, enter a question, mark the correct answer below. Go home -> Open Tests -> My Tests -> the new test. Enter correct answer, verify score.
-010     Press "Create Test", choose any option, enter a question and answers, click save, click "Open Test", check if test is present. Now delete all data for the app, open and log in, verify that test is still present.
+000     Login. Press "Create Quiz", add a name, choose any option, enter a question and answers, click "Add Question" and "Create Quiz". Verfiy that the screne is the home screen. Now press "Open Test", check if test is present.
+001     Login. Press "Edit Test", choose the test you want to edit, press "Add question", fill in the information. Verify
+002     Open the app to the login screen. Enter email and password and click login. Verify that this is not allowed as the profile is unique and unused. Press register. Verify that the confirmation message appears. Then press sign in. Verify that the screen is the home screen.
+003     Login. Press "Create Quiz", add a name, choose any option, and enter a question and answer. Now press "Add media" and select media to be added. Now click "Add Question" and "Create Quiz." Press "Take Quiz" and open the newly created quiz. Verify that the media is present.
+004     Login. Press "Create Quiz", add a name, choose any option, enter a question and answers (Verify that the correct answer is entered into the correct field), click "Add Question" and "Create Quiz". Now press "Take Quiz" and choose the newly created quiz. Finally, choose the correct answer and verify that the score is 100%.
+005     Login. Press "Create Quiz", add a name, choose any option, enter a question and answers (Verify that the correct answer is entered into the correct field), click "Add Question" and "Create Quiz". Now delete (wipe all data) and redownload the application. Open it and login. Now press "Take Quiz." Verify that the quiz is present.
+006     
+007      Login. Press "Create Quiz", add a name, choose any option, enter a question and answers (Verify that the correct answer is entered into the correct field), click "Add Question" and "Create Quiz". Press "Open Test", press "My Tests",and choose the test that was just created after verifying its presence.
+008     Login. Press "Edit Test." Choose the test to be edited and open it. Change one of the questions and press "Save Test." Now press "Take Test" and open that test. Verify that the question has changed.
+009     Login. Press "Edit Test." Choose the test to be edited and open it. Delete one of the questions by pressing "Delete Question" and press "Save Test." Now press "Take Test" and open that test. Verify that the question has been deleted.
+010     Login. Press "Edit Test." Choose the test to be edited and open it. Press "Delete Test." Verify that the screen is the home screen. Now press "Take Test" and verify that the test is no longer present.
+011     Login. Press "Take Test." Choose a test that was not made by the user. Verify that the user can take it.

@@ -13,4 +13,4 @@
 | 008 | As a user, I want to be able to change a question of a previously made quiz | 3 | 3 | One of the questions or answer choices of an existing quiz changed. | WORKING |
 | 009 | As a user, I want to be able to delete a question from a previously made quiz | 3 | 2 | One of the questions of an existing quiz was deleted. | WORKING |
 | 010 | As a user, I want to be able to delete a previously made quiz | 2 | 3 | One of the previously made quizzes is gone | WORKING |
-| 011 | As a user, I want to be able to tae a quiz made by another user. | 1 | 2 | A quiz not made by the current user is available to be taken.
+| 011 | As a user, I want to be able to take a quiz made by another user. | 1 | 2 | A quiz not made by the current user is available to be taken.
