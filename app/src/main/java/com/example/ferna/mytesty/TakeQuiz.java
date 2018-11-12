@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -17,11 +19,8 @@ public class TakeQuiz extends AppCompatActivity {
     public CheckBox chkBox3;
     public CheckBox chkBox4;
     public TextInputLayout ansFR;
-
-
-
-
-
+    public Button prev;
+    public Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,16 @@ public class TakeQuiz extends AppCompatActivity {
                 chkBox3.setText(newQuiz.current.getWrongAns2());
                 chkBox4 = (CheckBox)findViewById(R.id.checkBox4);
                 chkBox4.setText(newQuiz.current.getWrongAns3());
-                newQuiz.nextQuestion();
+                prev = (Button) findViewById(R.id.prvQuest);
+                next = (Button) findViewById(R.id.nxtQuest);
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        newQuiz.nextQuestion();
+
+                    }
+                });
+                //newQuiz.nextQuestion();
 
              //True False
             }else if (newQuiz.current.getQuesType() == 1) {
