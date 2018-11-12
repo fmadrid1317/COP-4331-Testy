@@ -54,10 +54,10 @@ public class TakeQuiz extends AppCompatActivity {
             //Multiple Choice
             if (newQuiz.current.getQuesType() == 0) {
 
-               /* Intent takeMC;
+                Intent takeMC;
                 takeMC = new Intent(TakeQuiz.this, TakeMC.class);
                 takeMC.putExtra("Quiz", newQuiz);
-                startActivity(takeMC);*/
+                startActivity(takeMC);
                 setContentView(R.layout.activity_take_mc);
                 question = (TextView)findViewById(R.id.mcText);
                 question.setText(newQuiz.current.getQuizQuestion());
@@ -72,6 +72,11 @@ public class TakeQuiz extends AppCompatActivity {
 
              //True False
             }else if (newQuiz.current.getQuesType() == 1) {
+
+                Intent takeTF;
+                takeTF = new Intent(TakeQuiz.this, TakeTF.class);
+                takeTF.putExtra("Quiz", newQuiz);
+                startActivity(takeTF);
                 setContentView(R.layout.activity_take_tf);
                 question = (TextView)findViewById(R.id.tfText);
                 question.setText(newQuiz.current.getQuizQuestion());
@@ -105,6 +110,11 @@ public class TakeQuiz extends AppCompatActivity {
 
              //Free Response
             }else if (newQuiz.current.getQuesType() == 2) {
+
+                Intent takeFR;
+                takeFR = new Intent(TakeQuiz.this, TakeFR.class);
+                takeFR.putExtra("Quiz", newQuiz);
+                startActivity(takeFR);
                 setContentView(R.layout.activity_take_fr);
                 question = (TextView)findViewById(R.id.frText);
                 question.setText(newQuiz.current.getQuizQuestion());
