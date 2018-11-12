@@ -46,10 +46,7 @@ public class FindQuiz extends AppCompatActivity
                 //Download Bytes from Cloud nonsense
                 UploadTask uploadTask = null;
                 StorageReference storageRef = storage.getReference();
-                StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");
-                //StorageReference quizUserRef = storageRef.child("user/" + quizName.getEditText().getText().toString() + ".qiz");
-                //StorageReference quizUserRef = storageRef.child(quizName.getEditText().getText().toString() + ".qiz");
-                //StorageReference gsReference = storage.getReferenceFromUrl("gs://cop-4331c-project-testy.appspot.com"+quizName.getEditText().getText().toString()+".qiz");
+                StorageReference quizRef = storageRef.child(quizName.getEditText().getText().toString().toLowerCase() + ".qiz");
 
                 final long ONE_MEGABYTE = 1024 * 1024;
                 quizRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {

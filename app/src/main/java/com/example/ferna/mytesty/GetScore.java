@@ -3,6 +3,7 @@ package com.example.ferna.mytesty;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +13,8 @@ public class GetScore extends AppCompatActivity
     public Button doneButton;
     public TextView score;
     public Quiz newQuiz;
+    public int numCorrect = 0;
+    public int totalQuests = 0;
 
 
     private void init()
@@ -22,7 +25,9 @@ public class GetScore extends AppCompatActivity
         Intent i = getIntent();
         newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
-        score.setText(null); //need to find the score somehow
+        getScore();
+
+        score.setText(String.valueOf(numCorrect) + "/" + String.valueOf(totalQuests));
 
 
         doneButton.setOnClickListener(new View.OnClickListener()
@@ -34,6 +39,22 @@ public class GetScore extends AppCompatActivity
             }
         });
 
+    }
+
+    private void getScore()
+    {
+        newQuiz.reset();
+        newQuiz.nextQuestion();
+        while(newQuiz.current.next != null)
+        {
+            if(newQuiz.current.getAnsweredCorrect())
+                numCorrect++;
+            totalQuests++;
+            newQuiz.nextQuestion();
+        }
+        if(newQuiz.current.getAnsweredCorrect())
+            numCorrect++;
+        totalQuests++;
     }
 
     protected void onCreate(Bundle savedInstanceState)

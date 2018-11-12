@@ -55,6 +55,19 @@ public class TakeMC extends AppCompatActivity {
 
     }
 
+    private void randomAssign()
+    {
+
+    }
+
+    private void checkAnswer()
+    {
+        if(ans1.isChecked())
+            newQuiz.current.setAnsweredCorrect(true);
+        else
+            newQuiz.current.setAnsweredCorrect(false);
+    }
+
     private void onlyCheckOne()
     {
         ans1.setOnClickListener(new View.OnClickListener()
@@ -141,6 +154,7 @@ public class TakeMC extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                checkAnswer();
                 if(newQuiz.current.next != null) {
                     newQuiz.nextQuestion();
                     if (newQuiz.current.getQuesType() == 0) {
@@ -178,6 +192,7 @@ public class TakeMC extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                checkAnswer();
                 if(newQuiz.current.previous != null)
                 {
                     newQuiz.previousQuestion();

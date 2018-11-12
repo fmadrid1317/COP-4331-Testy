@@ -44,6 +44,14 @@ public class TakeFR extends AppCompatActivity {
 
     }
 
+    private void checkAnswer()
+    {
+        if(ansTxt.getEditText().getText().toString().toLowerCase().equals(newQuiz.current.getCorrAns()))
+            newQuiz.current.setAnsweredCorrect(true);
+        else
+            newQuiz.current.setAnsweredCorrect(false);
+    }
+
     private void findNext()
     {
         nextButton.setOnClickListener(new View.OnClickListener()
@@ -51,6 +59,7 @@ public class TakeFR extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                checkAnswer();
                 if(newQuiz.current.next != null) {
                     newQuiz.nextQuestion();
                     if (newQuiz.current.getQuesType() == 0) {
@@ -88,6 +97,7 @@ public class TakeFR extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                checkAnswer();
                 if(newQuiz.current.previous != null)
                 {
                     newQuiz.previousQuestion();

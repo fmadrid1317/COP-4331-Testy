@@ -34,7 +34,7 @@ public class Quiz implements Serializable
         }
     }
 
-    void finish()
+    void reset()
     {
         current = null;
     }
@@ -68,6 +68,7 @@ public class Quiz implements Serializable
         private String wrongAns2;
         private String wrongAns3;
         private Boolean truFal;
+        private Boolean answeredCorrect;
         Question previous, next;
 
         Question(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
@@ -79,6 +80,7 @@ public class Quiz implements Serializable
             setWrongAns2(wroAns2);
             setWrongAns3(wroAns3);
             setTruFal(tF);
+            setAnsweredCorrect(false);
             previous = null;
             next = null;
         }
@@ -150,6 +152,14 @@ public class Quiz implements Serializable
 
         public void setTruFal(Boolean truFal) {
             this.truFal = truFal;
+        }
+
+        public Boolean getAnsweredCorrect() {
+            return answeredCorrect;
+        }
+
+        public void setAnsweredCorrect(Boolean answeredCorrect) {
+            this.answeredCorrect = answeredCorrect;
         }
     }
 
