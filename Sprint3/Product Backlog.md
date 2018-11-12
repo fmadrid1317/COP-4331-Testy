@@ -10,7 +10,7 @@
 | 005 | As a quiz creator, I want to be able to mark the correct for my quiz |	1	| 2	 | The correct answer is marked so the user knows if the he/she was right or wrong. | DONE |
 | 006 | As a developer, I want to the quizzes and user information to be stored server-side. |	2	| 5 |	If the app is deleted or the phone is factory reset, the data and profile does not dissappear. | DONE |
 | 007 | As a developer, I want to create a prototype of the UI.	| 1 |	3 |	The prototype is created to make it easier to implement in Android Studio. | DONE |
-| 008 | As a user, I want to be able to take a quiz made by me | 1 | 2 | The quiz is available and can be taken by the user.
+| 008 | As a user, I want to be able to take a quiz made by me | 1 | 2 | The quiz is available and can be taken by the user. | WORKING |
 
 
 
