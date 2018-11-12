@@ -19,8 +19,9 @@ public class TakeQuiz extends AppCompatActivity {
     public TextInputLayout ansFR;
 
 
-
-
+    //Put this in each XML instance you load
+    //Intent i = getIntent();
+    //newQuiz = (Quiz)i.getSerializableExtra("Quiz");
 
 
     @Override
