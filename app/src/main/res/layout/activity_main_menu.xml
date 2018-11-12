@@ -8,6 +8,18 @@
 
 
     <Button
+        android:id="@+id/editTestButton"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Edit Test"
+        app:layout_constraintBottom_toTopOf="@+id/sign_out_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/newTestButton"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
@@ -27,17 +39,16 @@
         android:id="@+id/openTestButton"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="74dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="256dp"
         android:text="Open Test"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newTestButton"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintTop_toBottomOf="@+id/newTestButton" />
 
     <Button
         android:id="@+id/sign_out_button"
@@ -46,14 +57,11 @@
         android:layout_marginBottom="130dp"
         android:layout_marginEnd="74dp"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="24dp"
         android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.818"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newTestButton"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
