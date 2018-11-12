@@ -91,6 +91,8 @@ public class FindQuiz extends AppCompatActivity
                     }
                 });
 
+
+
                 finish();
             }
         });
@@ -101,7 +103,7 @@ public class FindQuiz extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_quiz);
-        storage = FirebaseStorage.getInstance();
+        //storage = FirebaseStorage.getInstance();
         init();
     }
 }

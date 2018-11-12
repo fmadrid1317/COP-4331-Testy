@@ -29,9 +29,9 @@
         <activity android:name=".MultipleChoice_Activity" />
         <activity android:name=".TrueFalse_Activity" />
         <activity android:name=".FreeResponse_Activity" />
-        <activity android:name=".MainMenuActivity"/>
-        <activity android:name=".FindQuiz"/>
-
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".FindQuiz" />
+        <activity android:name=".TakeQuiz"></activity>
     </application>
 
 </manifest>
