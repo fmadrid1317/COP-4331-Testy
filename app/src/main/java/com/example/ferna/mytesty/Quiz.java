@@ -71,6 +71,11 @@ public class Quiz implements Serializable
         private Boolean answeredCorrect;
         private String savedAnswer;
         private Boolean checkRandom;
+        private int corrAnsPlace;
+        private int wrongAns1Place;
+        private int wrongAns2Place;
+        private int wrongAns3Place;
+        private Boolean isRandomized;
         Question previous, next;
 
         Question(int questType, String qQuestion, String corAns, String wroAns1, String wroAns2, String wroAns3, Boolean tF)
@@ -85,8 +90,23 @@ public class Quiz implements Serializable
             setAnsweredCorrect(false);
             setSavedAnswer("zzzzqqqq1");
             setCheckRandom(false);
+            setRandomized(false);
             previous = null;
             next = null;
+        }
+
+        public String getRandomizedAnswer(int choice)
+        {
+            if(corrAnsPlace == choice)
+                return getCorrAns();
+            else if(wrongAns1Place == choice)
+                return getWrongAns1();
+            else if(wrongAns2Place == choice)
+                return getWrongAns2();
+            else if(wrongAns3Place == choice)
+                return getWrongAns3();
+            else
+                return "Error";
         }
 
         public String getQuizQuestion() {
@@ -167,6 +187,46 @@ public class Quiz implements Serializable
 
         public void setCheckRandom(Boolean checkRandom) {
             this.checkRandom = checkRandom;
+        }
+
+        public int getCorrAnsPlace() {
+            return corrAnsPlace;
+        }
+
+        public void setCorrAnsPlace(int corrAnsPlace) {
+            this.corrAnsPlace = corrAnsPlace;
+        }
+
+        public int getWrongAns1Place() {
+            return wrongAns1Place;
+        }
+
+        public void setWrongAns1Place(int wrongAns1Place) {
+            this.wrongAns1Place = wrongAns1Place;
+        }
+
+        public int getWrongAns2Place() {
+            return wrongAns2Place;
+        }
+
+        public void setWrongAns2Place(int wrongAns2Place) {
+            this.wrongAns2Place = wrongAns2Place;
+        }
+
+        public int getWrongAns3Place() {
+            return wrongAns3Place;
+        }
+
+        public void setWrongAns3Place(int wrongAns3Place) {
+            this.wrongAns3Place = wrongAns3Place;
+        }
+
+        public Boolean getRandomized() {
+            return isRandomized;
+        }
+
+        public void setRandomized(Boolean randomized) {
+            isRandomized = randomized;
         }
     }
 

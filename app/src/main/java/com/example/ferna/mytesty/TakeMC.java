@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class TakeMC extends AppCompatActivity {
 
     public Button nextButton;
@@ -39,10 +41,14 @@ public class TakeMC extends AppCompatActivity {
             prevButton.setText("");
 
         quesText.setText(newQuiz.current.getQuizQuestion());
-        ans1.setText(newQuiz.current.getCorrAns());
-        ans2.setText(newQuiz.current.getWrongAns1());
-        ans3.setText(newQuiz.current.getWrongAns2());
-        ans4.setText(newQuiz.current.getWrongAns3());
+
+        if(!newQuiz.current.getRandomized())
+            randomAssign();
+
+        ans1.setText(newQuiz.current.getRandomizedAnswer(0));
+        ans2.setText(newQuiz.current.getRandomizedAnswer(1));
+        ans3.setText(newQuiz.current.getRandomizedAnswer(2));
+        ans4.setText(newQuiz.current.getRandomizedAnswer(3));
 
         loadAnswer();
 
@@ -57,8 +63,36 @@ public class TakeMC extends AppCompatActivity {
 
     }
 
+    //Bad randomization of answer choices
     private void randomAssign()
-    {
+    {   int randInt;
+        Random rnd = new Random();
+        rnd.setSeed(System.currentTimeMillis());
+        newQuiz.current.setRandomized(true);
+
+        randInt = rnd.nextInt(4);
+        newQuiz.current.setCorrAnsPlace(randInt);
+
+        while(randInt == newQuiz.current.getCorrAnsPlace())
+        {
+            randInt = rnd.nextInt(4);
+            newQuiz.current.setWrongAns1Place(randInt);
+        }
+
+        while((randInt == newQuiz.current.getCorrAnsPlace()) || (randInt == newQuiz.current.getWrongAns1Place()))
+        {
+            randInt = rnd.nextInt(4);
+            newQuiz.current.setWrongAns2Place(randInt);
+        }
+
+        if((newQuiz.current.getCorrAnsPlace() != 0) && (newQuiz.current.getWrongAns1Place() != 0) && (newQuiz.current.getWrongAns2Place() != 0))
+            newQuiz.current.setWrongAns3Place(0);
+        else if((newQuiz.current.getCorrAnsPlace() != 1) && (newQuiz.current.getWrongAns1Place() != 1) && (newQuiz.current.getWrongAns2Place() != 1))
+            newQuiz.current.setWrongAns3Place(1);
+        else if((newQuiz.current.getCorrAnsPlace() != 2) && (newQuiz.current.getWrongAns1Place() != 2) && (newQuiz.current.getWrongAns2Place() != 2))
+            newQuiz.current.setWrongAns3Place(2);
+        else
+            newQuiz.current.setWrongAns3Place(3);
 
     }
 
@@ -90,7 +124,33 @@ public class TakeMC extends AppCompatActivity {
     private void checkAnswer()
     {
         if(ans1.isChecked())
-            newQuiz.current.setAnsweredCorrect(true);
+        {
+            if(ans1.getText().toString().equals(newQuiz.current.getCorrAns()))
+                newQuiz.current.setAnsweredCorrect(true);
+            else
+                newQuiz.current.setAnsweredCorrect(false);
+        }
+        else if(ans2.isChecked())
+        {
+            if(ans2.getText().toString().equals(newQuiz.current.getCorrAns()))
+                newQuiz.current.setAnsweredCorrect(true);
+            else
+                newQuiz.current.setAnsweredCorrect(false);
+        }
+        else if(ans3.isChecked())
+        {
+            if(ans3.getText().toString().equals(newQuiz.current.getCorrAns()))
+                newQuiz.current.setAnsweredCorrect(true);
+            else
+                newQuiz.current.setAnsweredCorrect(false);
+        }
+        else if(ans4.isChecked())
+        {
+            if(ans4.getText().toString().equals(newQuiz.current.getCorrAns()))
+                newQuiz.current.setAnsweredCorrect(true);
+            else
+                newQuiz.current.setAnsweredCorrect(false);
+        }
         else
             newQuiz.current.setAnsweredCorrect(false);
     }
