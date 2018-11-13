@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,7 +57,8 @@ public class FindQuiz extends AppCompatActivity
                         //Make The Quiz
                         newQuiz = setData(bytes);
                         newQuiz.nextQuestion();
-
+                        Toast.makeText(FindQuiz.this, "Quiz Downloaded",
+                                Toast.LENGTH_SHORT).show();
                         //Start the quiz
                         if(newQuiz.head.getQuesType() == 0)
                         {
@@ -85,7 +87,8 @@ public class FindQuiz extends AppCompatActivity
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        // Handle any errors
+                        Toast.makeText(FindQuiz.this, "Couldn't Download Quiz",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
