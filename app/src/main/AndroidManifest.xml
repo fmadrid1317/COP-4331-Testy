@@ -35,6 +35,7 @@
         <activity android:name=".TakeMC"/>
         <activity android:name=".TakeTF"/>
         <activity android:name=".TakeFR"/>
+        <activity android:name=".SaveQuiz"/>
         <activity android:name=".GetScore">
         </activity>
     </application>
