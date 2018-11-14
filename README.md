@@ -45,4 +45,4 @@ Testy will be an Android app that assists college students with their course wor
 - [UML Diagrams](https://github.com/fmadrid1317/COP-4331C-Project-Testy/tree/master/Sprint3/UML%20Diagrams)
 - [Testcases](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Testcases.txt)
 - [Demonstration]() TODO
-- [APK]() TODO
+- [APK](https://github.com/fmadrid1317/COP-4331C-Project-Testy/blob/master/Sprint3/Testy.apk)
